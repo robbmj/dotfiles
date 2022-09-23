@@ -1,2 +1,4 @@
-# remap caps lock to escape
-setxkbmap -option caps:escape
+# start up pipewire
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipewire-media-session &
