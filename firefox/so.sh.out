@@ -1,0 +1,9 @@
+does match file1 -> file1
+does match file2 -> file2
+does not match file1 -> file2
+does not match file2 -> file1
+they don't match
+1c1
+< user_pref("webgl.vendor-string-override", " ");
+---
+> user_pref("webgl.vendor-string-override", " ");
