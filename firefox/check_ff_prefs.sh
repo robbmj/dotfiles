@@ -6,10 +6,13 @@ INSTALLED_FILE=/home/mcm/.mozilla/firefox/6zpaipqa.mcm/prefs.js
 missing_prefs=()
 
 while read -r line; do
-	line=${line//\"/\\\"}
+	#line=${line//\"/\\\"}
+
+	line=$(echo "${line}" | tr -d '\r')
+
 	grep -qx -- "${line}" $INSTALLED_FILE
 	exit_code=$?
-	if [ $exit_code != 0 ]; then
+	if [ "$exit_code" != "0" ]; then
 		missing_settings+=("${line}")
 	fi
 

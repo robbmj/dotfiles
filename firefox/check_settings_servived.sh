@@ -29,12 +29,14 @@ while read -r line; do
 	# the lines have quotation marks in them, replace each instance of " with \"
 	#escaped_line=${line//\"\\\"}
 
+	line=$(echo "${line}" | tr -d '\r')
+
 	grep -qx -- "${line}" $INSTALLED_FILE
 	exit_code=$?
 	
 	#echo $exit_code
 
-	if [ $exit_code != 0 ]; then
+	if [ "$exit_code" != "0" ]; then
 		#echo $line
 		missing_settings+=("${line}")
 	fi

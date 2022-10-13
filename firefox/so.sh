@@ -23,6 +23,10 @@ FILE_2=/home/mcm/.mozilla/firefox/6zpaipqa.mcm/prefs.js
 last_line_file_1=$(tail -n 1 $FILE_1)
 last_line_file_2=$(tail -n 1 $FILE_2)
 
+
+last_line_file_1=$(tr -d '\r' < $FILE_1)
+last_line_file_2=$(tr -d '\r' < $FILE_2)
+
 check_match "$last_line_file_1" "$FILE_1" "file1 -> file1"
 check_match "$last_line_file_2" "$FILE_2" "file2 -> file2"
 
